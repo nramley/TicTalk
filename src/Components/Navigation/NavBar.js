@@ -5,6 +5,7 @@ import Route from 'react-router-dom/Route';
 import Talk from '../Talk/Talk.js';
 import Stats from '../Stats/Stats.js';
 import Home from '../Home/Home.js';
+import Graphs from '../Graphs/Graphs.js';
 
 class NavBar extends Component {
   render() {
@@ -32,7 +33,7 @@ class NavBar extends Component {
           <div className="route-container">
           <Route path="/Talk" exact strict render={
             () => {
-              return ( <Talk/>);
+              return ( <Talk/> );
             }
           }/>
           </div>
@@ -47,6 +48,13 @@ class NavBar extends Component {
               return ( <Stats/>);
             }
           }/>
+           <Route path="/Graphs/:v1/:v2/:v3/:v4/:v5/:v6/:v7/:v8/:v9/:v10/:v11/:v12" 
+           component={Graphs} name="graphs" exact strict render={
+            () => {
+              return ( <Graphs/>);
+            }
+          }/>
+
           </div>
           </div>
         </Router>
