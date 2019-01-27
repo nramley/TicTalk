@@ -1,47 +1,17 @@
-const Dialogflow = require('dialogflow');
+var apiai = require('apiai');
 
-// You can find your project ID in your Dialogflow agent settings
-const projectId = 'conversation-bot-496a0'; //https://dialogflow.com/docs/agents#settings
-const sessionId = '123456';
-const languageCode = 'en-US';
+var app = apiai("7d84fd1d0c27411daec92fde07c8417b");
 
-const config = {
-  credentials: {
-    private_key: process.env.DIALOGFLOW_PRIVATE_KEY,
-    client_email: process.env.DIALOGFLOW_CLIENT_EMAIL,
-  },
-};
+var request = app.textRequest('Nice to see you!', {
+    sessionId: '123456'
+});
 
+request.on('response', function(response) {
+    console.log(response);
+});
 
-const sessionClient = new Dialogflow.SessionsClient(config);
+request.on('error', function(error) {
+    console.log(error);
+});
 
-const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-
-const processMessage = message => {
-  const request = {
-    session: sessionPath,
-    queryInput: {
-      text: {
-        text: message,
-        languageCode,
-      },
-    },
-  };
-
-  sessionClient
-    .detectIntent(request)
-    .then(responses => {
-      const result = responses[0].queryResult;
-    //   return pusher.trigger('bot', 'bot-response', {
-    //     message: result.fulfillmentText,
-    //   });
-        console.log(result);
-    })
-    .catch(err => {
-      console.error('ERROR:', err);
-    });
-}
-
-processMessage()
-
-module.exports = processMessage;
+request.end();
