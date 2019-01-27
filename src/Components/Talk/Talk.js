@@ -8,14 +8,14 @@ import Results from "./results";
 import axios from 'axios';
 
 const conversation = [
-  {person: "self", text: "Hi, my name is Lynx"},
-  {person: "friend", text: "Hi, I am TicTalk, nice to meet you Lynx"},
+  {person: "self", text: "Hello."},
+  {person: "friend", text: "Hi, I am TicTalk, nice to meet you."},
   {person: "self", text: "Nice to meet you too TicTalk!"},
   {person: "friend", text: "What did you do today."},
   {person: "self", text: "I eat a apple."},
   {person: "friend", text: "That's nice!"},
   {person: "self", text: "Bye Tiktalk."},
-  {person: "friend", text: "Talk to you next"},
+  {person: "friend", text: "Talk to you next time."},
 ];
 
 
@@ -33,7 +33,7 @@ function getRequest(requestText) {
     )
 }
 
-// returns a response text 
+// returns a response text
 function printResponse(request, callback) {
     request.on('response', (response) => {
         // console.log(response.result.fulfillment.speech);
@@ -130,7 +130,7 @@ class Talk extends Component {
                 var wrongchars = resultjson.errors[0].length;
                 var correctchars = totallength - wrongchars;
                 var totallength = latestmessage.length;
-  
+
                 this.totalchars += totallength;
                 this.correctchars += correctchars;
               })
@@ -141,7 +141,7 @@ class Talk extends Component {
         })
       }, 2000);
     })};
-  
+
 
   render() {
     return (
