@@ -35,6 +35,13 @@ class NavBar extends Component {
             }
           }/>
           </div>
+          <div className="route-container">
+          <Route path="/" exact strict render={
+            () => {
+              return ( <Home/>);
+            }
+          }/>
+          </div>
           </div>
         </Router>
     );

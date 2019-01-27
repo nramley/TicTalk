@@ -3,11 +3,16 @@
 	padding: 0;
 }
 
-.center{
+.center-top{
     text-align: center;
     float: center;
-    display: inline-block;
-		margin-left: -125px;
+		padding-top: 50px;
+}
+
+.center-bot{
+    text-align: center;
+    float: center;
+		padding-top: 500px;
 }
 
 .center h1{
@@ -33,11 +38,11 @@
 .left {
 	float:left;
 	text-align:right;
-	margin-top: 10.5%;
+	margin-top: 7%;
 }
 .right {
 	float: right;
-	margin-top: 10%;
+	margin-top: 7%;
 }
 
 .left:before, .right:before {
