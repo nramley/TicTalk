@@ -10,11 +10,11 @@ import axios from 'axios';
 const conversation = [
   {person: "self", text: "Hello."},
   {person: "friend", text: "Hi, I am TicTalk, nice to meet you."},
-  {person: "self", text: "Nice to meet you too TicTalk!"},
+  {person: "self", text: "Nice to meet you too!"},
   {person: "friend", text: "What did you do today."},
   {person: "self", text: "I eat a apple."},
   {person: "friend", text: "That's nice!"},
-  {person: "self", text: "Bye Tiktalk."},
+  {person: "self", text: "Bye friend."},
   {person: "friend", text: "Talk to you next time."},
 ];
 
