@@ -26,7 +26,7 @@ class Talk extends Component {
     this.userImage = "http://profilepicturesdp.com/wp-content/uploads/2018/06/cartoon-profile-picture-png-2.png";
     this.loadchat = this.loadchat.bind(this);
     this.loadmessage = this.loadmessage.bind(this);
-    this.bot = require('ai-chatbot');
+    // this.bot = require('ai-chatbot');
     // this.loadbotmessage = this.loadbotmessage.bind(this);
     this.totalchars = 0;
     this.closestats = this.closestats.bind(this);
@@ -44,9 +44,9 @@ class Talk extends Component {
   }
 
   componentDidMount(){
-    this.bot.get("hello", (err, res) => {
-        console.log(res);
-    });
+    // this.bot.get("hello", (err, res) => {
+    //     console.log(res);
+    // });
   }
 
   loadchat(){
