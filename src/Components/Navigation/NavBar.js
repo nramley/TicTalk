@@ -7,45 +7,39 @@ import Talk from '../Talk/Talk.js';
 
 
 class NavBar extends Component {
-
-render() {
-
-  return (
-  <Router>
-        <div className="outer-container">
-
-        <nav className="nav-bar">
-
-        <img className="logo" src={this.props.logo} />
-
-        <ul className="menu-list">
-          <li className="menu-list-item">
-           Profile
-            <ul className="dropdown">
-                <li>
-                    <NavLink to="/FizzExecs" className="dropdown-item" activeClassName="dropdown-item">
-                    Executives
-                    </NavLink>
-                </li>
-              </ul>
-          </li>
-          </ul>
-        </nav>
-
-        <div className="route-container">
-
-        <Route path="/Talk" exact strict render={
-          () => {
-            return ( <Talk/>);
-          }
-        }/>
-
-        </div>
-        </div>
-      </Router>
-);
-}
-
+  render() {
+    return (
+    <Router>
+          <div className="outer-container">
+          <nav className="nav-bar">
+          <img className="logo" src={this.props.logo} />
+          <ul className="menu-list">
+            <li className="menu-list-item">
+              <NavLink to="/Talk">Talk</NavLink>
+            </li>
+            <li className="menu-list-item">
+              Profile
+              <ul className="dropdown">
+                  <li>
+                      <NavLink to="/FizzExecs" className="dropdown-item" activeClassName="dropdown-item">
+                      Executives
+                      </NavLink>
+                  </li>
+                </ul>
+            </li>
+            </ul>
+          </nav>
+          <div className="route-container">
+          <Route path="/Talk" exact strict render={
+            () => {
+              return ( <Talk/>);
+            }
+          }/>
+          </div>
+          </div>
+        </Router>
+    );
+  }
 }
 
 export default NavBar;
