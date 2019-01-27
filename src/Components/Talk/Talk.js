@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import ReactScribe from "./ReactScribe";
-// import printResponse from "./api/dialogflow";
+// import {printResponse} from "./api/dialogflow";
+import https from 'https';
 // import spellChecker from "./api/azure"
 import './Talk.css';
-
+import Results from "./results";
+import axios from 'axios';
 
 class Talk extends Component {
   constructor(props) {
@@ -15,7 +17,8 @@ class Talk extends Component {
         // {person: "friend", text: "Hi, I am Bot, nice to meet you lynx"},
         // {person: "self", text: "Nice to meet you too Bot!"}
       ],
-      record: false
+      record: false,
+      showstat: false,
 
       // const app = apiai("7d84fd1d0c27411daec92fde07c8417b");
     };
@@ -23,11 +26,27 @@ class Talk extends Component {
     this.userImage = "http://profilepicturesdp.com/wp-content/uploads/2018/06/cartoon-profile-picture-png-2.png";
     this.loadchat = this.loadchat.bind(this);
     this.loadmessage = this.loadmessage.bind(this);
-    this.loadbotmessage = this.loadbotmessage.bind(this);
+    this.bot = require('ai-chatbot');
+    // this.loadbotmessage = this.loadbotmessage.bind(this);
+    this.totalchars = 0;
+    this.closestats = this.closestats.bind(this);
+  }
+
+  closestats(){
+    console.log("close stats");
+    this.setState({showstat: false}, ()=>{
+      console.log(this.state)
+    });
+  }
+
+  openstats(){
+    this.setState({showstate: true});
   }
 
   componentDidMount(){
-  
+    this.bot.get("hello", (err, res) => {
+        console.log(res);
+    });
   }
 
   loadchat(){
@@ -39,26 +58,71 @@ class Talk extends Component {
     )
   }
 
-  loadbotmessage(){
-    var latestmessage = this.state.history[this.state.history.length-1];
-    // spellChecker(latestmessage, (res) => {
-    //   console.log(res);
-    // })
-
-    printResponse(latestmessage, (res) => {
-      console.log(res);
-      this.setState((prevState) => {
-        history: prevState.history.push({person: "bot", text: res});
-      });
-      this.forceUpdate();
-    });
-  }
-
   loadmessage(message){
     this.setState((prevState) => {
       history: prevState.history.push({person: "self", text: message});
-    });
-    this.forceUpdate();
+    }, () => {
+        this.forceUpdate();
+        console.log(this.state.history);
+        var latestmessage = this.state.history[this.state.history.length-1].text + ".";
+        axios.get(`https://api.textgears.com/check.php?text=${latestmessage.split(' ').join('+')}&key=YL6X0nTxp4uEwa6h`)
+            .then((res) => {
+              console.log(res);
+              var resultjson = JSON.parse(res);
+              var wrongchars = resultjson.errors[0].length;
+              var correctchars = totallength - wrongchars;
+              var totallength = latestmessage.length;
+
+              this.totalchars += totallength;
+              this.correctchars += correctchars;
+            })
+            .catch(function (error) {
+                if (error.response) {
+                }
+            });
+      })
+  }
+
+  spellChecker(query, callback){
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/spellcheck';    
+
+    let mkt = "en-US";
+    let mode = "proof";
+    let text = query;
+    let query_string = "?mkt=" + mkt + "&mode=" + mode;
+    
+    let request_params = {
+        method : 'POST',
+        hostname : host,
+        path : path + query_string,
+        headers : {
+            'Content-Type' : 'application/x-www-form-urlencoded',
+            'Content-Length' : text.length + 5,
+            'Ocp-Apim-Subscription-Key' : 'a9771b586c5b4c879da8723a21dcafc6',
+    //        'X-Search-Location' : CLIENT_LOCATION,
+    //        'X-MSEdge-ClientID' : CLIENT_ID,
+    //        'X-MSEdge-ClientIP' : CLIENT_ID,
+        }
+    };
+    
+    let response_handler = function (response) {
+        let body = '';
+        response.on ('data', function (d) {
+            body += d;
+        });
+        response.on ('end', function () {
+            // console.log (body);
+            callback(body);
+        });
+        response.on ('error', function (e) {
+            console.log ('Error: ' + e.message);
+        });
+    };
+    
+    let req = https.request (request_params, response_handler);
+    req.write ("text=" + text);
+    req.end ();
   }
 
   render() {
@@ -68,6 +132,7 @@ class Talk extends Component {
           {this.loadchat()}
         </div>
         <ReactScribe loadmessage={this.loadmessage}/>
+        {this.state.showstat == true ? <Results closestats={this.closestats.bind(this)}/> : null}
         </div>
     )
   }
