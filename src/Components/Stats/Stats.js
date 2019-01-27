@@ -20,11 +20,11 @@ class Stats extends Component {
   return (
     <div className="stats-container">
 
-    <h1>My Scores</h1>
+    <h1 className="stats-header">My Scores</h1>
 
 
     <div className="date">
-    <h2>January 3, 2019</h2>
+    <h2 className="date-header">January 3, 2019</h2>
         <StackGrid
               appear={scaleDown.appear}
               appeared={scaleDown.appeared}
@@ -86,7 +86,7 @@ class Stats extends Component {
         </div>
 
     <div className="date">
-    <h2>January 5, 2019</h2>
+    <h2 className="date-header">January 5, 2019</h2>
         <StackGrid
               appear={scaleDown.appear}
               appeared={scaleDown.appeared}

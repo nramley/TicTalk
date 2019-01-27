@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './Graphs.css';
+import ReactChartkick, { LineChart, PieChart } from 'react-chartkick'
+import Chart from 'chart.js'
+
+ReactChartkick.addAdapter(Chart)
 
 
 

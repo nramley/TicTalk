@@ -37,7 +37,7 @@
   width: 100%;
 }
 
-h2 {
+.date-header {
   border-bottom: 1px solid #565759;
   margin-bottom: 1vh;
   margin-left: 2vw;
@@ -46,7 +46,7 @@ h2 {
 
 }
 
-h1 {
+.stats-header {
   margin:auto;
   color: #565759;
   margin-top: 2vh;

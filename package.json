@@ -5,10 +5,12 @@
   "dependencies": {
     "@material-ui/core": "^3.9.1",
     "apiai": "^4.0.3",
+    "chart.js": "^2.7.3",
     "dialogflow": "^0.7.0",
     "dotenv": "^6.2.0",
     "microsoft-cognitiveservices-speech-sdk": "^1.2.1",
     "react": "^16.7.0",
+    "react-chartkick": "^0.3.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",
