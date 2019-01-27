@@ -12,30 +12,30 @@ export class Mic extends React.Component {
     }
     this.onStop = this.onStop.bind(this);
   }
- 
+
   startRecording = () => {
       console.log("button is clicked");
     this.setState({
       record: true
     });
   }
- 
+
   stopRecording = () => {
     this.setState({
       record: false
     });
   }
- 
+
   onData(recordedBlob) {
     console.log('chunk of real-time data is: ', recordedBlob);
   }
- 
+
   downloadBlob(blob, filename) {
     console.log("saving blob...");
     const url = window.URL.createObjectURL(blob);
     const click = document.createEvent('Event');
     click.initEvent('click', true, true);
-  
+
     const link = document.createElement('A');
     link.href = url;
     link.download = filename;
@@ -76,5 +76,3 @@ export class Mic extends React.Component {
     );
   }
 }
-
-
