@@ -153,7 +153,7 @@ function speechToText(filename, callback){
 
 
 //Example call
-spellChecker("The two best things about the food was the food and the music", (res)=>{
+spellChecker("I will take there food", (res)=>{
     console.log(res);
 });
 

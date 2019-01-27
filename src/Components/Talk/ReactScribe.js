@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./Chatbox.css";
 import mic from "./mic.gif";
 import micAnimate from "./mic-animate.gif";
 import micSlash from "./mic-slash.gif";
@@ -250,12 +250,12 @@ class ReactScribe extends Component {
   render() {
     return (
       <div className="App" id="MyApp">
-      <button onClick={() => {console.log(this.props); this.props.loadmessage(this.state.final_transcript)}}>Send audio</button>
-        <h3 className="center" id="headline">
-          <a href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">
-            Webby
-          </a>{" "}
-        </h3>
+
+        <h1 className="center" id="headline">
+
+            Your Reply:
+
+        </h1>
         <div id="info">
           <p id="info_start">
             Click on the microphone icon and begin speaking.
@@ -289,10 +289,12 @@ class ReactScribe extends Component {
             version 25 or later.
           </p>
         </div>
-        <div className="right">
+        <div className="reply-buttons">
           <button id="start_button" onClick={this.startButton}>
+          <h2>Record Speech</h2>
             <img id="start_img" src={mic} alt="Start" />
           </button>
+          <button id="send_audio" onClick={() => {console.log(this.props); this.props.loadmessage(this.state.final_transcript)}}><h2>Send audio</h2></button>
         </div>
         <div id="results">
           <span id="final_span" className="final">
