@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Home.css';
 import globe from '../../Images/planet.png';
-
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 
 class Home extends Component {
 
@@ -55,7 +55,8 @@ class Home extends Component {
          <h2 className={`language ${option == "Arabic العَرَبِيَّة" ? 'orange2' : ''}`} onClick={this.handleOptionsChange.bind(this)}>Arabic العَرَبِيَّة</h2>
      </div>
 
-     <span className="spanTalk center-bot"><div className="btnTalk">Begin talking</div></span>
+     <NavLink to="/Talk"><span className="spanTalk center-bot"><div className="btnTalk">Begin talking</div></span>
+     </NavLink>
 
 
 
