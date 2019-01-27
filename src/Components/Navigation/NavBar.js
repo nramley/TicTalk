@@ -3,7 +3,7 @@ import './NavBar.css';
 import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 import Route from 'react-router-dom/Route';
 import Talk from '../Talk/Talk.js';
-
+import Home from '../Home/Home.js';
 
 
 class NavBar extends Component {
@@ -33,6 +33,12 @@ render() {
         </nav>
 
         <div className="route-container">
+
+        <Route path="/" exact strict render={
+          () => {
+            return ( <Home/>);
+          }
+        }/>
 
         <Route path="/Talk" exact strict render={
           () => {
