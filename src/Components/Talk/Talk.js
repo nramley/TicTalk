@@ -27,7 +27,19 @@ class Talk extends Component {
     this.loadchat = this.loadchat.bind(this);
     this.loadmessage = this.loadmessage.bind(this);
     this.closestats = this.closestats.bind(this);
+    this.totalchars = 0;
     //this.loadbotmessage = this.loadbotmessage.bind(this);
+  }
+
+  closestats(){
+    console.log("close stats");
+    this.setState({showstat: false}, ()=>{
+      console.log(this.state)
+    });
+  }
+
+  openstats(){
+    this.setState({showstate: true});
   }
 
   componentDidMount(){
