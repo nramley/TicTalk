@@ -117,6 +117,10 @@ opacity: 1;
 
 /* */
 
+.dropdown-item {
+  color: white;
+}
+
 .dropdown-item:hover {
   background-color: white;
   color: #4b4570;

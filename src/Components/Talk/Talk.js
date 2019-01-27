@@ -10,7 +10,7 @@ import axios from 'axios';
 class Talk extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       // { person: "self", text: "Test"} { person: "friend", text: "Test"}
       history: [
         // {person: "self", text: "Hi, my name is Lynx"},
@@ -26,27 +26,12 @@ class Talk extends Component {
     this.userImage = "http://profilepicturesdp.com/wp-content/uploads/2018/06/cartoon-profile-picture-png-2.png";
     this.loadchat = this.loadchat.bind(this);
     this.loadmessage = this.loadmessage.bind(this);
-    // this.bot = require('ai-chatbot');
-    // this.loadbotmessage = this.loadbotmessage.bind(this);
-    this.totalchars = 0;
     this.closestats = this.closestats.bind(this);
-  }
-
-  closestats(){
-    console.log("close stats");
-    this.setState({showstat: false}, ()=>{
-      console.log(this.state)
-    });
-  }
-
-  openstats(){
-    this.setState({showstate: true});
+    //this.loadbotmessage = this.loadbotmessage.bind(this);
   }
 
   componentDidMount(){
-    // this.bot.get("hello", (err, res) => {
-    //     console.log(res);
-    // });
+
   }
 
   loadchat(){
@@ -127,12 +112,14 @@ class Talk extends Component {
 
   render() {
     return (
-      <div>
+      <div className="talk-container">
+
+        <ReactScribe loadmessage={this.loadmessage}/>
         <div className="chatbox">
           {this.loadchat()}
         </div>
-        <ReactScribe loadmessage={this.loadmessage}/>
         {this.state.showstat == true ? <Results closestats={this.closestats.bind(this)}/> : null}
+        <button className="reply-buttons">Finish</button>
         </div>
     )
   }
