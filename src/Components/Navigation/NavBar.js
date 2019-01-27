@@ -15,9 +15,7 @@ class NavBar extends Component {
           <nav className="nav-bar">
           <NavLink to="/"><img className="logo" src={this.props.logo} /></NavLink>
           <ul className="menu-list">
-            <li className="menu-list-item">
-              <NavLink to="/Talk">Talk</NavLink>
-            </li>
+            
             <li className="menu-list-item">
               Profile
               <ul className="dropdown">
@@ -48,7 +46,7 @@ class NavBar extends Component {
               return ( <Stats/>);
             }
           }/>
-           <Route path="/Graphs/:name/:v1/:v2/:v3/:v4/:v5/:v6/:v7/:v8/:v9/:v10/:v11/:v12" 
+           <Route path="/Graphs/:name/:v1/:v2/:v3/:v4/:v5/:v6/:v7/:v8/:v9/:v10/:v11/:v12"
            component={Graphs} name="graphs" exact strict render={
             () => {
               return ( <Graphs/>);

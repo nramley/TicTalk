@@ -55,7 +55,7 @@ class Home extends Component {
          <h2 className={`language ${option == "Arabic العَرَبِيَّة" ? 'orange2' : ''}`} onClick={this.handleOptionsChange.bind(this)}>Arabic العَرَبِيَّة</h2>
      </div>
 
-     <NavLink to="/Talk"><span className="spanTalk center-bot"><div className="btnTalk">Begin talking</div></span>
+     <NavLink to="/Talk"><span className="spanTalk"><div className="btnTalk">Begin talking</div></span>
      </NavLink>
 
 

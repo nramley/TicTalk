@@ -1,14 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
 *{
     margin: 0;
     padding: 0;
-    font-family: tahoma, sans-serif;
+    color: #4b4570;
+    font-family: 'Roboto';
     box-sizing: border-box;
   }
 
   .chatbox{
-    width: 500px;
+    width: 40vw;
     min-width: 390px;
     height: 600px;
+    overflow-y: scroll;
     background: rgba(0,0,0,.1);
     padding: 25px;
     margin: 20px auto;
@@ -87,6 +91,7 @@
     padding: 10px;
     font-size: 18px;
     color: #333;
+
   }
 
   .chat-form textarea:focus{
@@ -123,12 +128,12 @@
   .chat-form button:hover{
     background: #13c8d9;
   }
-  
+
   .button {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
   }
-  
+
   .button:hover {
     background-color: #4CAF50; /* Green */
     color: white;
@@ -138,3 +143,8 @@
       display:hidden;
       visibility: 0;
   }
+
+.talk-container {
+  display: flex;
+  align-items: center;
+}

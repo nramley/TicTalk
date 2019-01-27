@@ -8,7 +8,7 @@ import './Talk.css';
 class Talk extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       // { person: "self", text: "Test"} { person: "friend", text: "Test"}
       history: [
         // {person: "self", text: "Hi, my name is Lynx"},
@@ -23,11 +23,11 @@ class Talk extends Component {
     this.userImage = "http://profilepicturesdp.com/wp-content/uploads/2018/06/cartoon-profile-picture-png-2.png";
     this.loadchat = this.loadchat.bind(this);
     this.loadmessage = this.loadmessage.bind(this);
-    this.loadbotmessage = this.loadbotmessage.bind(this);
+    //this.loadbotmessage = this.loadbotmessage.bind(this);
   }
 
   componentDidMount(){
-  
+
   }
 
   loadchat(){
@@ -39,20 +39,20 @@ class Talk extends Component {
     )
   }
 
-  loadbotmessage(){
-    var latestmessage = this.state.history[this.state.history.length-1];
-    // spellChecker(latestmessage, (res) => {
-    //   console.log(res);
-    // })
-
-    printResponse(latestmessage, (res) => {
-      console.log(res);
-      this.setState((prevState) => {
-        history: prevState.history.push({person: "bot", text: res});
-      });
-      this.forceUpdate();
-    });
-  }
+  // loadbotmessage(){
+  //   var latestmessage = this.state.history[this.state.history.length-1];
+  //   // spellChecker(latestmessage, (res) => {
+  //   //   console.log(res);
+  //   // })
+  //
+  //   printResponse(latestmessage, (res) => {
+  //     console.log(res);
+  //     this.setState((prevState) => {
+  //       history: prevState.history.push({person: "bot", text: res});
+  //     });
+  //     this.forceUpdate();
+  //   });
+  // }
 
   loadmessage(message){
     this.setState((prevState) => {
@@ -63,11 +63,12 @@ class Talk extends Component {
 
   render() {
     return (
-      <div>
+      <div className="talk-container">
+
+        <ReactScribe loadmessage={this.loadmessage}/>
         <div className="chatbox">
           {this.loadchat()}
         </div>
-        <ReactScribe loadmessage={this.loadmessage}/>
         </div>
     )
   }
