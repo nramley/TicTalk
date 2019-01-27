@@ -132,3 +132,8 @@
     background-color: #4CAF50; /* Green */
     color: white;
   }
+
+  .sound-wave{
+      display:hidden;
+      visibility: 0;
+  }

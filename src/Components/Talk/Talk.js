@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Talk.css';
-import { ReactMic } from 'react-mic';
-
+import {Mic} from './mic.js';
 
 class Talk extends Component {
   constructor(props) {
@@ -23,26 +22,6 @@ class Talk extends Component {
   componentDidMount(){
   }
 
-  startRecording = () => {
-    this.setState({
-      record: true
-    });
-  }
- 
-  stopRecording = () => {
-    this.setState({
-      record: false
-    });
-  }
- 
-  onData(recordedBlob) {
-    console.log('chunk of real-time data is: ', recordedBlob);
-  }
- 
-  onStop(recordedBlob) {
-    console.log('recordedBlob is: ', recordedBlob);
-  }
-
   loadchat(){
     return this.state.history.map((e)=>
         <div className={`chat ${e.person}`}>
@@ -58,16 +37,8 @@ class Talk extends Component {
         <div className="chatbox">
           {this.loadchat()}
         </div>
-        <ReactMic
-          record={this.state.record}
-          className="sound-wave"
-          onStop={this.onStop}
-          onData={this.onData}
-          strokeColor="#000000"
-          backgroundColor="#FF4081" />
-        <button onTouchTap={this.startRecording} type="button">Start</button>
-        <button onTouchTap={this.stopRecording} type="button">Stop</button>
-      </div>
+        <Mic></Mic>
+        </div>
 
     )
   }
