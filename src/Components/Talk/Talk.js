@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import './Talk.css';
 import ReactScribe from "./ReactScribe";
+// import printResponse from "./api/dialogflow";
+// import spellChecker from "./api/azure"
+import './Talk.css';
+
 
 class Talk extends Component {
   constructor(props) {
@@ -8,16 +11,19 @@ class Talk extends Component {
     this.state = { 
       // { person: "self", text: "Test"} { person: "friend", text: "Test"}
       history: [
-        {person: "self", text: "Hi, my name is Lynx"},
-        {person: "friend", text: "Hi, I am Bot, nice to meet you lynx"},
-        {person: "self", text: "Nice to meet you too Bot!"}
+        // {person: "self", text: "Hi, my name is Lynx"},
+        // {person: "friend", text: "Hi, I am Bot, nice to meet you lynx"},
+        // {person: "self", text: "Nice to meet you too Bot!"}
       ],
       record: false
+
+      // const app = apiai("7d84fd1d0c27411daec92fde07c8417b");
     };
     this.botImage = "https://pngimage.net/wp-content/uploads/2018/05/bot-icon-png.png";
     this.userImage = "http://profilepicturesdp.com/wp-content/uploads/2018/06/cartoon-profile-picture-png-2.png";
     this.loadchat = this.loadchat.bind(this);
     this.loadmessage = this.loadmessage.bind(this);
+    this.loadbotmessage = this.loadbotmessage.bind(this);
   }
 
   componentDidMount(){
@@ -31,6 +37,21 @@ class Talk extends Component {
         <p className="chat-message">{e.text}</p>
       </div>
     )
+  }
+
+  loadbotmessage(){
+    var latestmessage = this.state.history[this.state.history.length-1];
+    // spellChecker(latestmessage, (res) => {
+    //   console.log(res);
+    // })
+
+    printResponse(latestmessage, (res) => {
+      console.log(res);
+      this.setState((prevState) => {
+        history: prevState.history.push({person: "bot", text: res});
+      });
+      this.forceUpdate();
+    });
   }
 
   loadmessage(message){

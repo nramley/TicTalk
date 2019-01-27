@@ -11,13 +11,15 @@ function getRequest(requestText) {
 }
 
 // returns a response text 
-function printResponse(request) {
-    request.on('response', function(response) {
-        console.log(response.result.fulfillment.speech);
+function printResponse(request, callback) {
+    request.on('response', (response) => {
+        // console.log(response.result.fulfillment.speech);
+        callback(response.result.fulfillment.speech);
     });
 
-    request.on('error', function(error) {
-        console.log(error);
+    request.on('error', (error) => {
+        callback(error);
+        // console.log(error);
     });
 }
 
@@ -27,7 +29,9 @@ function endRequest(request) {
 
 
 var request = getRequest("How are you");
-printResponse(request);
+printResponse(request, (res) =>{
+    console.log(res);
+});
 endRequest(request);
 
 
