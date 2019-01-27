@@ -16,15 +16,18 @@ render() {
 
         <nav className="nav-bar">
 
-        <img src={this.props.logo} />
+        <img className="logo" src={this.props.logo} />
 
         <ul className="menu-list">
           <li className="menu-list-item">
-           <NavLink to="/Talk" className="menu-link" exact activeStyle={
-              {
-              color: '#ffcc14',
-               }
-            }>Talk</NavLink>
+           Profile
+            <ul className="dropdown">
+                <li>
+                    <NavLink to="/FizzExecs" className="dropdown-item" activeClassName="dropdown-item">
+                    Executives
+                    </NavLink>
+                </li>
+              </ul>
           </li>
           </ul>
         </nav>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './Components/Navigation/NavBar';
-import logo from './Images/logo.png';
+import TicTalk from './Images/TicTalk.png';
 
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
 
 
       <div className="app-container">
-        <NavBar logo={logo}/>
+        <NavBar logo={TicTalk}/>
       </div>
 
 
