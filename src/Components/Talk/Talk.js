@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Talk.css';
-import {Mic} from './mic.js';
+import ReactScribe from "./ReactScribe";
 
 class Talk extends Component {
   constructor(props) {
@@ -17,9 +17,11 @@ class Talk extends Component {
     this.botImage = "https://pngimage.net/wp-content/uploads/2018/05/bot-icon-png.png";
     this.userImage = "http://profilepicturesdp.com/wp-content/uploads/2018/06/cartoon-profile-picture-png-2.png";
     this.loadchat = this.loadchat.bind(this);
+    this.loadmessage = this.loadmessage.bind(this);
   }
 
   componentDidMount(){
+  
   }
 
   loadchat(){
@@ -31,15 +33,21 @@ class Talk extends Component {
     )
   }
 
+  loadmessage(message){
+    this.setState((prevState) => {
+      history: prevState.history.push({person: "self", text: message});
+    });
+    this.forceUpdate();
+  }
+
   render() {
     return (
       <div>
         <div className="chatbox">
           {this.loadchat()}
         </div>
-        <Mic></Mic>
+        <ReactScribe loadmessage={this.loadmessage}/>
         </div>
-
     )
   }
 }
