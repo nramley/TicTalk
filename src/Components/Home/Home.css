@@ -115,3 +115,8 @@
 .btnTalk:hover:before {
   width: 100%;
 }
+
+.orange2 {
+	color: #FFA500;
+	font-size: 1.6em;
+}
