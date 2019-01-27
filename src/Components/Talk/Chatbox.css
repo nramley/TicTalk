@@ -76,6 +76,12 @@ padding: 10px;
 border: 1px solid #4b4570;
 border-radius: 5px;
 text-transform: uppercase;
+border-radius: 10px;
+background: white;
+border: solid 1px #4b4570;
+text-align: center;
+box-shadow: 1px 4px 8px #888888;
+
 
 }
 
