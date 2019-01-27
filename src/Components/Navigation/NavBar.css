@@ -6,6 +6,11 @@
   margin-top: 61px;
 }
 
+a, a:hover, a:active, a:visited, a:focus {
+  color: white;
+  text-decoration:none;
+}
+
 .nav-bar {
   height: 15%;
   width: 100%;
@@ -14,7 +19,6 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 5px;
-
 }
 
 .route-container {
@@ -46,8 +50,6 @@
      text-decoration: none;
      text-transform: uppercase;
 }
-
-
 
 .menu-link:hover {
   color: #ffcc14;
