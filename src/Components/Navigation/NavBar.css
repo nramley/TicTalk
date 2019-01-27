@@ -1,0 +1,17 @@
+.outer-container {
+  width: 100%;
+}
+
+.route-container {
+  margin-top: 61px;
+}
+
+.nav-bar {
+  height: 10%;
+  width: 100%;
+  background-color: pink;
+}
+
+.route-container {
+  margin-top: 0px;
+}
