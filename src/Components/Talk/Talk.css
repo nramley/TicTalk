@@ -123,3 +123,18 @@
   .chat-form button:hover{
     background: #13c8d9;
   }
+  
+  .button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+  
+  .button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+  .sound-wave{
+      display:hidden;
+      visibility: 0;
+  }

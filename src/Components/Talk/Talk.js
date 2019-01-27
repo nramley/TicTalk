@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Talk.css';
+import {Mic} from './mic.js';
 
 class Talk extends Component {
   constructor(props) {
@@ -10,10 +11,11 @@ class Talk extends Component {
         {person: "self", text: "Hi, my name is Lynx"},
         {person: "friend", text: "Hi, I am Bot, nice to meet you lynx"},
         {person: "self", text: "Nice to meet you too Bot!"}
-      ]
+      ],
+      record: false
     };
-    this.botimage = "https://pngimage.net/wp-content/uploads/2018/05/bot-icon-png.png";
-    this.userimage = "http://profilepicturesdp.com/wp-content/uploads/2018/06/cartoon-profile-picture-png-2.png";
+    this.botImage = "https://pngimage.net/wp-content/uploads/2018/05/bot-icon-png.png";
+    this.userImage = "http://profilepicturesdp.com/wp-content/uploads/2018/06/cartoon-profile-picture-png-2.png";
     this.loadchat = this.loadchat.bind(this);
   }
 
@@ -22,22 +24,23 @@ class Talk extends Component {
 
   loadchat(){
     return this.state.history.map((e)=>
-        <div class={`chat ${e.person}`}>
-        <div class="user-photo"><img src={this.botimage}/></div>
-        <p class="chat-message">{e.text}</p>
+        <div className={`chat ${e.person}`}>
+        <div className="user-photo"><img alt="profile" src={e.person === "self" ? this.userImage : this.botImage}/></div>
+        <p className="chat-message">{e.text}</p>
       </div>
     )
   }
 
   render() {
-  return (
-    <div class="chatbox">
-      {this.loadchat()}
-    </div>
-  )
-        
-    
-    
+    return (
+      <div>
+        <div className="chatbox">
+          {this.loadchat()}
+        </div>
+        <Mic></Mic>
+        </div>
+
+    )
   }
 }
 

@@ -14,7 +14,6 @@ const xmlbuilder = require('xmlbuilder');
  * variable. If you prefer to hardcode the subscription key for ease of use,
  * replace process.env.SUBSCRIPTION_KEY with your subscription key as a string.  
  */
-
 const subscriptionKey = process.env.AZURE_SUBSCRIPTION_KEY;
 if (!subscriptionKey) {
   throw new Error('Environment variable for your subscription key is not set.')
@@ -96,8 +95,6 @@ if (!subscriptionKey) {
 
 // // Test api call
 // textToSpeech(subscriptionKey, saveAudio);
-
-
 
 
 //////////////////////////////////////
