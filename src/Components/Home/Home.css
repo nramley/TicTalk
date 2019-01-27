@@ -15,6 +15,12 @@
 		padding-top: 500px;
 }
 
+.center-bot h1{
+		width: 100px;
+		margin: auto;
+		border: 5px solid black;
+}
+
 .center h1{
     margin-top: 10%;
 }
