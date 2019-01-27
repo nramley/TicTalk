@@ -1,10 +1,10 @@
 *{
     margin: 0;
-    paddnig: 0;
+    padding: 0;
     font-family: tahoma, sans-serif;
     box-sizing: border-box;
   }
-  
+
   .chatbox{
     width: 500px;
     min-width: 390px;
@@ -14,7 +14,7 @@
     margin: 20px auto;
     box-shadow:  0 3px #ccc;
   }
-  
+
   .chatlogs{
     padding: 10px;
     width: 100%;
@@ -23,23 +23,23 @@
     overflow-x: hidden;
       overflow-y: scroll;
   }
-  
+
   .chatlogs::-webkit-scrollbar{
     width: 10px;
   }
-  
+
   .chatlogs::-webkit-scrollbar-thumb{
     border-radius: 5px;
     background: rgba(0,0,0,.1);
   }
-  
+
   .chat{
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
     margin-bottom: 10px;
   }
-  
+
   .chat .user-photo{
     width: 60px;
     height: 60px;
@@ -47,12 +47,12 @@
    border-radius: 50%;
      overflow: hidden;
   }
-  
+
   .chat .user-photo img{
     width: 100%;
     margin-right: 5px;
   }
-  
+
   .chat .chat-message{
     width: 80%;
     padding: 17px;
@@ -61,22 +61,22 @@
     color: #fff;
     font-size: 20px;
   }
-  
+
   .self .chat-message{
     background: #1ddced;
   }
-  
+
   .friend .chat-message{
     background: #1adda4;
     order: -1;
   }
-  
+
   .chat-form{
     margin-top: 20px;
     display: flex;
     align-items: flex-start;
   }
-  
+
   .chat-form textarea{
     background: #fbfbfb;
     width: 75%;
@@ -88,20 +88,20 @@
     font-size: 18px;
     color: #333;
   }
-  
+
   .chat-form textarea:focus{
     background: #fff;
   }
-  
+
   .chat-form textarea::-webkit-scrollbar{
     width: 10px;
   }
-  
+
   .chat-form textarea::-webkit-scrollbar-thumb{
     border-radius: 5px;
     background: rgba(0,0,0,.1);
   }
-  
+
   .chat-form button{
     background: #1ddced;
     padding: 10px 30px;
@@ -112,13 +112,14 @@
     border-radius: 3px;
     box-shadow: 0 3px 0 #0eb2c1;
     cursor: pointer;
-    
+
     -webkit--transition: background .2s ease;
     -moz-transition: background .2s ease;
     -o-transition: background .2s ease;
 
+
   }
-  
+
   .chat-form button:hover{
     background: #13c8d9;
   }

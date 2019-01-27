@@ -1,25 +1,66 @@
 *{
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
-.center{
-    text-align: center;
-    float: center;
-    display: inline-block;
+.center-top{
+   text-align: center;
+   float: center;
+        padding-top: 50px;
+}
+
+.center-bot{
+   text-align: center;
+   float: center;
+        padding-top: 500px;
+}
+
+.center-bot h1{
+        width: 100px;
+        margin: auto;
+        border: 5px solid black;
 }
 
 .center h1{
-    margin-top: 3%;
+   margin-top: 10%;
 }
 
 .center p{
-    width: 50px;
-    border: 1px solid #000;
+   width: 50px;
+   border: 1px solid #000;
 }
 
-.circle{
-    float: center;
-    shape-outside: circle();
-    margin: 30px;
+#circle {
+   width: 400px;
+   height: 400px;
+   position: absolute;
+   top: 200px;
+   left: 50%;
+   margin-left: -200px;
+   display: block;
+}
+
+.left, .right {width: 49%;}
+.left {
+    float:left;
+    text-align:right;
+    margin-top: 7%;
+}
+.right {
+    float: right;
+    margin-top: 7%;
+}
+
+.left:before, .right:before {
+   content: "";
+   width: 300px;
+   height: 300px;
+}
+.left:before {
+   float: right;
+   shape-outside: circle(farthest-side at right);
+}
+.right:before {
+   float: left;
+   shape-outside: circle(farthest-side at left);
 }
