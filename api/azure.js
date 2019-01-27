@@ -9,19 +9,13 @@ const readline = require('readline-sync');
 // Requires xmlbuilder to build the SSML body
 const xmlbuilder = require('xmlbuilder');
 
-
-/*
- * These lines will attempt to read your subscription key from an environment
- * variable. If you prefer to hardcode the subscription key for ease of use,
- * replace process.env.SUBSCRIPTION_KEY with your subscription key as a string.  
- */
+// Read SubscriptionKey of Azure
 const subscriptionKey = process.env.AZURE_SUBSCRIPTION_KEY;
 if (!subscriptionKey) {
   throw new Error('Environment variable for your subscription key is not set.')
 };
 
 // TextToSpeech
-
 function textToSpeech(text, audiofile, callback) {
     let options = {
         method: 'POST',
@@ -35,9 +29,6 @@ function textToSpeech(text, audiofile, callback) {
     function getToken(error, response, body) {
         console.log("Getting your token...\n")
         if (!error && response.statusCode == 200) {
-            //This is the callback to our saveAudio function.
-            // It takes a single argument, which is the returned accessToken.
-            
             saveAudio(text, audiofile, body, callback)
         }
         else {
@@ -103,17 +94,8 @@ textToSpeech("Test", "output.wav", (res) => {console.log("completed conversion")
 // Text to Speech ////////////////////
 //////////////////////////////////////
 
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT license.
-
 // // pull in the required packages.
 var sdk = require("microsoft-cognitiveservices-speech-sdk");
-
-// replace with your own subscription key,
-// service region (e.g., "westus"), and
-// the name of the file you want to run
-// through the speech recognizer.
-// var subscriptionKey = subscriptionKey;
 
 // Example function call
 speechToText("output.wav", (res) => {
